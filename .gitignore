@@ -1,0 +1,12 @@
+# Ignore text output files
+*.txt
+
+# Ignore images
+*.png
+*.jpg
+*.jpeg
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+.idea/
