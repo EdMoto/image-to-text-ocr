@@ -28,7 +28,7 @@ Save your screenshots in a folder (e.g., C:\Users\You\Documents\BookScreenshots)
 
 Run the script:
 
-python extract_text.py
+python img2Txt.py
 
 
 Enter:
