@@ -1,54 +1,79 @@
-# Image to Text (OCR) Script
+# Image to Text OCR
 
-This Python script extracts text from images (such as screenshots of book pages) and saves everything into a single text file.  
-It uses [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) through the `pytesseract` library.
+A simple Python script that uses [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) to extract text from images (e.g., book screenshots) and save the results into a single text file.  
+
+This project is useful if you want to quickly convert multiple images (like textbook pages or scanned notes) into editable text.  
 
 ---
 
 ## Features
-- Extracts text from `.png`, `.jpg`, and `.jpeg` images.
-- Processes files in order (sorted by filename).
-- Lets you choose your output text file name.
-- Saves the results directly into the same folder as your images.
+
+- Select a folder containing your images (via popup file dialog).  
+- Automatically extracts text from `.png`, `.jpg`, and `.jpeg` files in order.  
+- Choose where to save the output text file with a **Save As** popup.  
+- Text is grouped by image filename for clarity.  
+- Option to **open the generated file immediately** when processing completes.  
 
 ---
 
 ## Requirements
-- **Python 3.x**
-- **Tesseract OCR** installed on your system  
-  - [Windows installer (UB Mannheim builds)](https://github.com/UB-Mannheim/tesseract/wiki)  
-  - Mac: `brew install tesseract`  
-  - Linux: `sudo apt install tesseract-ocr`
-- Python packages (install with pip):
-  ```bash
-  pip install pillow pytesseract
-Usage
 
-Save your screenshots in a folder (e.g., C:\Users\You\Documents\BookScreenshots).
+- Python 3.8 or higher  
+- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract) installed on your system  
+- The following Python packages:  
+  ```bash
+  pip install pytesseract pillow
+
+Setup
+
+Install Tesseract OCR
+.
+
+On Windows, the default path is usually:
+
+C:\Program Files\Tesseract-OCR
+
+
+Make sure to update the script if your install path is different.
+
+Clone this repository or download the script.
+
+Open the project in your IDE (e.g., PyCharm).
+
+Install the required Python packages:
+
+pip install pytesseract pillow
+
+Usage
 
 Run the script:
 
 python img2Txt.py
 
 
-Enter:
+When prompted:
 
-The folder path containing your images.
+Select the folder containing your screenshots/images.
 
-A name for the output text file (default: book_text.txt).
+Choose a name and location for the output .txt file.
 
-The script will process the images in order and save the text file into the same folder.
+The script will process each image in order and save all extracted text into the single text file you chose.
+
+After completion, you’ll be asked:
+
+“Do you want to open the file now?”
+If you select Yes, the file will open in your default text editor.
 
 Example
 
-Input folder:
+Input folder contents:
 
 Ch7 - 201.png
 Ch7 - 202.png
 Ch7 - 203.png
 
 
-Output file: book_text.txt
+Output file (book_text.txt):
 
 --- Ch7 - 201.png ---
 [Extracted text here]
@@ -61,9 +86,12 @@ Output file: book_text.txt
 
 Notes
 
-If Tesseract is not found automatically on Windows, update the script with the correct path:
+Images are processed in sorted order by filename.
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+Only .png, .jpg, and .jpeg files are supported.
 
+You can ignore generated text files and images in GitHub by using the provided .gitignore.
 
-Use consistent filenames (e.g., Ch7 - 201.png, Ch7 - 202.png) to ensure pages are processed in the correct order.
+License
+
+This project is open-source and free to use under the MIT License.
